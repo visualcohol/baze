@@ -8,10 +8,7 @@ class Baze {
     Baze.instance = this;
 
     this.libs = {
-      baze: this,
-      event: new Event(this),
-      data: new Data(this),
-      cache: new Cache(this),
+      Baze: this,
     };
 
     this.globalVarName = globalVarName.toLowerCase();
@@ -26,10 +23,10 @@ class Baze {
     if (window[this.globalVarName][classConstructor.name]) {
       throw new Error(`There is already a function "${classConstructor.name}" registered.`);
     } else {
-      window[this.globalVarName][classConstructor.name.toLowerCase()] = new classConstructor();
+      window[this.globalVarName][classConstructor.name] = new classConstructor(this);
     }
   }
 }
 
 export default Baze;
-export { Baze, Event, Data, Cache };
+export { Event, Data, Cache };
