@@ -1,6 +1,7 @@
 import Event from './Event';
 import Cache from './Cache';
 import Data from './Data';
+import Cart from './Cart';
 
 class Baze {
   constructor(globalVarName = 'Baze') {
@@ -29,4 +30,4 @@ class Baze {
 }
 
 export default Baze;
-export { Event, Data, Cache };
+export { Event, Data, Cache, Cart };

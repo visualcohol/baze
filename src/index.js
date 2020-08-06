@@ -1,4 +1,4 @@
-import Baze, { Event } from './libs/Baze';
+import Baze, { Event, Data, Cache, Cart } from './libs/Baze';
 
 let baze = new Baze('Test');
 
@@ -12,4 +12,7 @@ class myClass {
 }
 
 baze.register(Event);
+baze.register(Cache);
+baze.register(Data);
+baze.register(Cart);
 baze.register(myClass);
