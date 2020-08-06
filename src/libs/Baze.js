@@ -1,30 +1,31 @@
 import Event from './Event';
+import Cache from './Cache';
+import Data from './Data';
 
 class Baze {
-  constructor(globalVar = 'Baze') {
+  constructor(globalVarName = 'Baze') {
     if (!!Baze.instance) return Baze.instance;
     Baze.instance = this;
 
-    this.globalVar = globalVar;
-
-    this.createGlobal(globalVar);
+    this.globalVarName = globalVarName.toLowerCase();
+    this.createGlobal(this.globalVarName);
   }
 
-  createGlobal(globalVar) {
-    window[globalVar] = {
-      //Event: new Event(),
-      Baze: this,
+  createGlobal(globalVarName) {
+    window[globalVarName] = {
+      baze: this,
+      event: new Event(),
     };
   }
 
   register(classConstructor) {
-    if (window[this.globalVar][classConstructor.name]) {
+    if (window[this.globalVarName][classConstructor.name]) {
       throw new Error(`There is already a function "${classConstructor.name}" registered.`);
     } else {
-      window[this.globalVar][classConstructor.name] = new classConstructor();
+      window[this.globalVarName][classConstructor.name.toLowerCase()] = new classConstructor();
     }
   }
 }
 
 export default Baze;
-export { Baze, Event };
+export { Baze, Event, Data, Cache };

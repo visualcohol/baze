@@ -1,5 +1,11 @@
-import { Baze, Event } from './libs/Baze';
+import { Baze, Event, Data, Cache } from './libs/Baze';
 
-let baze = new Bass('Test');
+let baze = new Baze('Test');
 
-baze.register(Event);
+class myClass extends Event {
+  constructor() {
+    super();
+  }
+}
+
+baze.register(myClass);
