@@ -1,7 +1,5 @@
-import Cache from './Cache';
-
 class Data {
-  constructor() {
+  constructor(baze) {
     this.data = {};
   }
 }

@@ -1,5 +1,5 @@
 class Cache {
-  constructor() {
+  constructor(baze) {
     this.cache = {};
   }
 }

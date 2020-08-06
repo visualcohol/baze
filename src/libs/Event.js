@@ -1,5 +1,5 @@
 class Event {
-  constructor() {
+  constructor(baze) {
     this.events = {};
   }
 
